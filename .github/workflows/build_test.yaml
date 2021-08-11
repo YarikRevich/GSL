@@ -1,0 +1,19 @@
+name: build_test
+
+env:
+  - AUTHOR: YaroslavRevich
+
+permissions: read-only
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v2
+      - name: build
+        run: go build
